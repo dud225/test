@@ -7,5 +7,6 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: 
-          echo ${{ vars.TEST != '' && vars.TEST || vars.FALLBACK }}
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.TOKEN }}
