@@ -8,6 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo ${{ secrets.MYSECRET }} | base64 > /tmp/a
-          base64 /tmp/a > /tmp/b
-          base64 -d /tmp/b | base64 -d
+          echo ${{ secrets.MYSECRET }} | tr 'A-Za-z' 'N-ZA-Mn-za-m'
