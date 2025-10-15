@@ -4,7 +4,10 @@ on: [push]
 
 jobs:
   Explore-GitHub-Actions:
-    environment: test
+    environment: test-main
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ secrets.MYSECRET }} | base64 | base64 | base64 -d | base64 -d
+      - run: |
+          echo ${{ secrets.MYSECRET }} | base64 > /tmp/a
+          base64 /tmp/a > /tmp/b
+          base64 -d /tmp/b | base64 -d
